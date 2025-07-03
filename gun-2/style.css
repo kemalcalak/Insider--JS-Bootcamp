@@ -1,0 +1,93 @@
+body {
+  background-color: #f0f4f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Form Konteyner */
+.form-container {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-container h1 {
+  color: #333333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.text-center {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.text-center a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.text-center a:hover {
+  text-decoration: underline;
+}
+
+/* Form Elemanları */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #cccccc;
+  border-radius: 0.25rem;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Checkbox Grupları */
+.remember-group {
+  display: flex;
+  align-items: center;
+}
+
+.remember-group input {
+  margin-right: 0.5rem;
+}
+
+/* Buton Stilleri */
+.btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
