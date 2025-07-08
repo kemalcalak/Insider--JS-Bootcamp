@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+const name = prompt("Adınızı girin:");
+const age = prompt("Yaşınızı girin:");
+const job = prompt("Mesleğinizi girin:");
+
+const user = {
+  name,
+  age,
+  job,
+};
+
+console.log("Kullanıcı Bilgileri:", user);
+
+let cart = [];
+
+function addProduct() {
+  const productName = prompt("Ürün adını girin:");
+  const productPrice = parseFloat(prompt("Ürün fiyatını girin:"));
+
+  if (productName && !isNaN(productPrice)) {
+    cart.push({ name: productName, price: productPrice });
+    console.log(`${productName} sepete eklendi.`);
+  } else {
+    console.log("Geçersiz giriş.");
+  }
+}
+
+function listCart() {
+  if (cart.length === 0) {
+    console.log("Sepet boş.");
+    return;
+  }
+
+  console.log("🛒 Sepet:");
+  cart.forEach((item, index) => {
+    console.log(`${index + 1}. ${item.name} - ${item.price}₺`);
+  });
+
+  const total = cart.reduce((sum, item) => sum + item.price, 0);
+  console.log(`Toplam Fiyat: ${total.toFixed(2)}₺`);
+}
+
+function removeProduct() {
+  listCart();
+  const indexToRemove = parseInt(prompt("Silmek istediğiniz ürünün numarasını girin:")) - 1;
+
+  if (!isNaN(indexToRemove) && indexToRemove >= 0 && indexToRemove < cart.length) {
+    const removed = cart.splice(indexToRemove, 1)[0];
+    console.log(`${removed.name} sepetten çıkarıldı.`);
+  } else {
+    console.log("Geçersiz seçim.");
+  }
+}
+
+while (true) {
+  const action = prompt("Ne yapmak istersiniz? (ekle/listele/sil/çık)");
+
+  if (action === "ekle") {
+    addProduct();
+  } else if (action === "listele") {
+    listCart();
+  } else if (action === "sil") {
+    removeProduct();
+  } else if (action === "çık") {
+    console.log("Çıkış yapılıyor...");
+    break;
+  } else {
+    alert("Geçersiz komut. Lütfen 'ekle', 'listele', 'sil' veya 'çık' yazın.");
+  }
+}
+
+</script>
+<body>
+    
+</body>
+</html>
