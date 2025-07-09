@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 2. Ödev</title>
+</head>
+<body>
+    <h1>En uzun Collatz zincirini başlatan sayı: <span id="sayi"></span></h1>
+    <h1>Zincir uzunluğu: <span id="uzunluk"></span></h1>
+    
+    <script>
+        function collatzUzunlugu(n, hafiza) {
+            let orijinal = n;
+            let uzunluk = 0;
+
+            while (n !== 1) {
+                if (hafiza[n]) {
+                    uzunluk += hafiza[n];
+                    break;
+                }
+                if (n % 2 === 0) {
+                    n = n / 2;
+                } else {
+                    n = 3 * n + 1;
+                }
+                uzunluk++;
+            }
+
+            hafiza[orijinal] = uzunluk;
+            return uzunluk;
+        }
+
+        let enUzun = 0;
+        let sayi = 0;
+        let hafiza = {};
+
+        for (let i = 1; i < 1000000; i++) {
+            let uzunluk = collatzUzunlugu(i, hafiza);
+            if (uzunluk > enUzun) {
+                enUzun = uzunluk;
+                sayi = i;
+            }
+        }
+
+        // Sonuçları HTML'e yazdır
+        document.getElementById("sayi").textContent = sayi;
+        document.getElementById("uzunluk").textContent = enUzun;
+        
+        console.log("En uzun Collatz zincirini başlatan sayı:", sayi);
+        console.log("Zincir uzunluğu:", enUzun);
+    </script>
+</body>
+</html>
