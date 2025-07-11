@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Geri Sayım Aracı</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 150px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    button:nth-child(1) {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    button:nth-child(2) {
+      background-color: #f44336;
+      color: white;
+    }
+
+    #sayacGosterge {
+      font-size: 24px;
+      color: #222;
+      margin-top: 30px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Geri Sayım Aracı</h1>
+
+  <label for="saniyeInput">Süre (saniye): </label><br>
+  <input type="number" id="saniyeInput" min="1"><br>
+
+  <button onclick="baslat()">Başlat</button>
+  <button onclick="sifirla()">Sıfırla</button>
+
+  <p id="sayacGosterge">Henüz başlatılmadı.</p>
+
+  <script>
+    let geriSayim;
+    let kalanSaniye = 0;
+
+    function baslat() {
+      const input = document.getElementById("saniyeInput").value;
+      kalanSaniye = parseInt(input);
+
+      if (isNaN(kalanSaniye) || kalanSaniye <= 0) {
+        alert("Lütfen geçerli bir sayı girin.");
+        return;
+      }
+
+      clearInterval(geriSayim);
+
+      geriSayim = setInterval(() => {
+        document.getElementById("sayacGosterge").innerText = kalanSaniye + " saniye kaldı";
+        kalanSaniye--;
+
+        if (kalanSaniye < 0) {
+          clearInterval(geriSayim);
+          document.getElementById("sayacGosterge").innerText = "Süre doldu!";
+        }
+      }, 1000);
+    }
+
+    function sifirla() {
+      clearInterval(geriSayim);
+      document.getElementById("sayacGosterge").innerText = "Sıfırlandı.";
+      document.getElementById("saniyeInput").value = "";
+    }
+  </script>
+</body>
+</html>
