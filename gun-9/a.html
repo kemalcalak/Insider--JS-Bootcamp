@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Günlük Ödev - Öğrenci Listesi</title>
+    <link rel="stylesheet" href="a.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="a.js" defer></script>
+  </head>
+  <body>
+    <h1>Öğrenci Listesi</h1>
+    <table id="studentTable">
+      <thead>
+        <tr>
+          <th>İsim</th>
+          <th>Sınıf</th>
+          <th>İşlemler</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <form id="addStudentForm">
+      <input type="text" id="nameInput" placeholder="Öğrenci İsmi" required />
+      <input type="text" id="classInput" placeholder="Sınıf" required />
+      <button type="submit">Ekle</button>
+    </form>
+  </body>
+</html>
