@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mini E-Ticaret</title>
+    <link rel="stylesheet" href="a.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Mini E-Ticaret</h1>
+        <div class="cart-summary"><span id="cartCount">0</span> ürün</div>
+      </header>
+
+      <div class="search-section">
+        <form id="searchForm">
+          <input
+            type="number"
+            id="searchInput"
+            placeholder="Ürün ID'si ile ara (1-20)..."
+            min="1"
+            max="20"
+          />
+          <button type="submit">Ara</button>
+          <button type="button" id="resetSearch">Tümünü Göster</button>
+        </form>
+      </div>
+
+      <div id="carousel-container">
+        <h3>Öne Çıkanlar</h3>
+        <div id="carousel"></div>
+      </div>
+
+      <div class="filter-section">
+        <h3>Kategoriler</h3>
+        <div id="categoryFilters"></div>
+      </div>
+
+      <div class="products-section">
+        <h3>Tüm Ürünler</h3>
+        <div id="productList"></div>
+        <div id="loading" style="display: none">
+          <div class="spinner"></div>
+          <p>Ürünler yükleniyor...</p>
+        </div>
+      </div>
+
+      <div class="cart-section">
+        <div class="cart-header">
+          <h2>Sepetim</h2>
+          <div class="cart-actions">
+            <button id="toggleCart" class="toggle-btn">
+              Sepeti Göster/Gizle
+            </button>
+            <button id="clearCartBtn" class="clear-btn">Sepeti Temizle</button>
+          </div>
+        </div>
+        <div id="cart" class="cart-content"></div>
+        <div id="cartTotal" class="cart-total"></div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <script src="a.js"></script>
+  </body>
+</html>
